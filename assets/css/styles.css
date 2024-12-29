@@ -344,6 +344,15 @@ img {
   border-radius: .5rem;
   font-weight: var(--font-medium);
 }
+.button:hover{
+  background-color: var(--first-color-alt);
+}
+
+.button__icon{
+  font-size: 1.25rem;
+  margin-left: 1.25rem;
+  transition: .3s;
+}
 
 /*==================== ABOUT ====================*/
 
