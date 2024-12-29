@@ -1,0 +1,46 @@
+* HOME
+home__social
+https://www.linkedin.com/
+https://dribbble.com/
+https://github.com/
+
+home__description
+Conhecimento em desenvolvimento web, análise de dados, suporte técnico e criação de interfaces para dashboards utilizando o Figma, sempre entregando trabalhos de alta qualidade.
+
+* ABOUT
+about__description
+Sou estudante de Ciência da Computação pela Universidade Federal do Maranhão, atualmente em busca de oportunidades de emprego. Possuo conhecimentos sólidos em linguagens de programação como Python e Java, além de experiência em desenvolvimento web, criação de portfólios e TreeLinks. Tenho habilidades em análise de dados, Power BI, SQL Server e criação de interfaces para dashboards no Figma. Também adquiri experiência em suporte técnico, manutenção e assistência técnica. Estou focado em me aprofundar nessas áreas e em adquirir novas habilidades que contribuam para meu crescimento profissional.
+about__info-name
+Years <br> experience
+Completed <br> project
+Companies <br> worked
+
+
+* SERVICES
+services__modal-service
+Criação de portfólios Web e TreeLinks.
+Manutenção, suporte para Notebooks e DeskTop.
+Ativação e instalação de office e Windows.
+Criação de interfaces para dashboards utilizando o Figma, para análise de dados.
+
+
+* PORTFOLIO
+portfolio__description
+TreeLinks para acesso a redes socias profissionais.
+Site adaptável a todos os dispositivos, com componentes ui e interações animadas.
+
+
+* PROJECT
+project__description
+Contacte-me agora e ganhe 30% de desconto no seu novo projeto ou com problemas no seu Pc.
+
+* TESTIMONIAL
+testimonial__description
+Fico com uma boa impressão, realizo meu projeto com toda a qualidade possível e atenção e suporte 24 horas por dia.
+
+
+* FOOTER
+footer__social
+https://www.linkedin.com/in/marcos-mineiro-62a2a719a/
+https://github.com/marvinMV23
+https://contate.me/mvmineiro
