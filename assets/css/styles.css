@@ -830,6 +830,13 @@ img {
   justify-self: center;
 }
 
+.testimonial__data,
+.testimonial__header{
+  display: flex;
+}
+
+
+
 
 /*==================== TESTIMONIAL ====================*/
 
