@@ -830,6 +830,10 @@ img {
   justify-self: center;
 }
 
+
+
+
+/*==================== TESTIMONIAL ====================*/
 .testimonial__data,
 .testimonial__header{
   display: flex;
@@ -866,9 +870,9 @@ img {
   color: var(--first-color);
 }
 
-
-/*==================== TESTIMONIAL ====================*/
-
+.swiper-container .swiper-pagination-testimonial{
+  bottom: 0;
+}
 
 /*==================== CONTACT ME ====================*/
 
