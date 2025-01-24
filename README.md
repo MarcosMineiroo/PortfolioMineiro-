@@ -3,3 +3,7 @@
 <p align= "center">
     Este é um site de portfólio pessoal que reúne links profissionais, projetos realizados e informações sobre meus serviços como Analista de Dados, Desenvolvedor Web e Técnico em Suporte.
 </p>
+
+<p align="center">
+  <img alt="License" src="/assets/img/readme.png">
+</p>
