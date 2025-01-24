@@ -52,7 +52,7 @@ skillsHeader.forEach((el) =>{
     el.addEventListener('click', toggleSkills)
 } )
 
-/*==================== QUALIFICATION TABS ====================*/
+/*==================== QUALIFICACAO TABS ====================*/
 const tabs = document.querySelectorAll('[data-target]'),
     tabContents = document.querySelectorAll('[data-content]')
 
@@ -77,7 +77,7 @@ tabs.forEach( tab =>{
     })
 })
 
-/*==================== SERVICES MODAL ====================*/
+/*==================== SERVICOS MODAL ====================*/
 const modalViews = document.querySelectorAll('.services__modal'),
       modalBtns = document.querySelectorAll('.services__button'),
       modalCloses = document.querySelectorAll('.services__modal-close')
@@ -115,7 +115,7 @@ let swiperPortfolio = new Swiper('.portfolio__container', {
     },
 });
 
-/*==================== TESTIMONIAL ====================*/
+/*==================== COMENTARIOS ====================*/
 let swiperTestimonial = new Swiper('.testimonial__container', {
     loop: true,
     grabCursor: true,
