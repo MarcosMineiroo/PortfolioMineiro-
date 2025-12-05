@@ -956,18 +956,18 @@
                         </div>
                     </div>
 
-                    <form id="contact-form" class="contact__form grid" onsubmit="sendContact(event)">
+                   <form id="contact-form" class="contact__form grid">
                         <div class="contact__inputs grid">
                             <div class="contact__content">
-                                <label for="name" class="contact__label">Nome</label>
-                                <input type="text" name="name" id="name" class="contact__input" required autocomplete="off">
+                            <label for="name" class="contact__label">Nome</label>
+                            <input type="text" name="name" id="name" class="contact__input" required autocomplete="off">
                             </div>
                         </div>
 
                         <div class="contact__inputs grid">
                             <div class="contact__content">
-                                <label for="email" class="contact__label">E-mail</label>
-                                <input type="email" name="email" id="email" class="contact__input" required autocomplete="off">
+                            <label for="email" class="contact__label">E-mail</label>
+                            <input type="email" name="email" id="email" class="contact__input" required autocomplete="off">
                             </div>
                         </div>
                         
@@ -985,7 +985,9 @@
                             <input type="submit" value="Enviar mensagem" class="button button--flex">
                             <p id="status"></p>
                         </div>
-                    </form>
+                        </form>
+                    
+
 
                 </div>
             </section>
@@ -1042,8 +1044,52 @@
 
         <!--==================== MAIN JS ====================-->
         <script src="assets/js/main.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const form = document.getElementById('contact-form');
+                const statusText = document.getElementById('status');
+                const endpoint = 'https://script.google.com/macros/s/AKfycbz-wosBC40IHRj2EVUMqXmCSGTy3r4akmjcOjeqVNUitFKvfuUh6RDhGlulwFvHuYkl/exec';
 
-        <!--==================== form php====================-->
-        <script src="assets/php/php.php"></script>
+                if (!form) {
+                console.error('Formulário de contato não encontrado!');
+                return;
+                }
+
+                form.addEventListener('submit', function (e) {
+                e.preventDefault(); // impede o POST pro bucket
+
+                statusText.textContent = 'Enviando...';
+
+                const nome = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const projeto = document.getElementById('project').value;
+                const mensagemTexto = document.getElementById('message').value;
+
+                const payload = {
+                    nome: nome,
+                    email: email,
+                    mensagem: 'Projeto: ' + projeto + '\n\nMensagem: ' + mensagemTexto
+                };
+
+                fetch(endpoint, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                    'Content-Type': 'text/plain;charset=utf-8'
+                    },
+                    body: JSON.stringify(payload)
+                })
+                    .then(function () {
+                    statusText.textContent = 'Mensagem enviada com sucesso!';
+                    form.reset();
+                    })
+                    .catch(function (error) {
+                    console.error(error);
+                    statusText.textContent = 'Ocorreu um erro ao enviar a mensagem.';
+                    });
+                });
+            });
+        </script>
+
     </body>
 </html>

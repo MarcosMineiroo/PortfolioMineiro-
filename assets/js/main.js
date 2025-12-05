@@ -205,45 +205,4 @@ themeButton.addEventListener('click', () => {
 })
 
 
-/*==================== FORMULARIO DE CONTATO ====================*/
-document.addEventListener('DOMContentLoaded', () => {
 
-    const form = document.getElementById('contact-form');
-    const statusText = document.getElementById('status');
-
-    if (!form) {
-        console.error("Formulário de contato não encontrado!");
-        return;
-    }
-
-const endpoint = "https://script.google.com/macros/s/AKfycbz-wosBC40IHRj2EVUMqXmCSGTy3r4akmjcOjeqVNUitFKvfuUh6RDhGlulwFvHuYkl/exec";
-
-    form.addEventListener('submit', async e => {
-        e.preventDefault();
-        status.innerHTML = "Enviando...";
-
-        const payload = {
-            nome: form.nome.value,
-            email: form.email.value,
-            mensagem: form.mensagem.value
-
-        };
-
-        try {
-            await fetch(endpoint, {
-                method: 'POST',
-
-                mode: "no-cors" ,
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            });
-
-            statusText = "Mensagem enviada com sucesso!";
-            form.reset();
-        } catch (error) {
-            statusText = "Ocorreu um erro ao enviar a mensagem.";
-        }
-    });
-});
