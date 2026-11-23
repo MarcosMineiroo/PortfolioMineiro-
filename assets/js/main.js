@@ -228,19 +228,18 @@ if(lightbox){
     const closeLb = () =>{
         lightbox.classList.remove('is-open')
         lightbox.setAttribute('aria-hidden', 'true')
-        document.body.classList.remove('cmodal-lock')
     }
-    document.querySelectorAll('.work__banner--img img').forEach(img =>{
-        img.addEventListener('click', () =>{
-            lbImg.src = img.dataset.full || img.src
-            lbImg.alt = img.alt
-            lightbox.classList.add('is-open')
-            lightbox.setAttribute('aria-hidden', 'false')
-            document.body.classList.add('cmodal-lock')
-        })
+    // Abre a imagem grande a partir da janela de detalhes do projeto
+    document.addEventListener('click', (e) =>{
+        const img = e.target.closest('.pmodal__hero-img')
+        if(!img) return
+        lbImg.src = img.src
+        lbImg.alt = img.alt
+        lightbox.classList.add('is-open')
+        lightbox.setAttribute('aria-hidden', 'false')
     })
     lightbox.addEventListener('click', closeLb)
-    document.addEventListener('keydown', (e) =>{ if(e.key === 'Escape') closeLb() })
+    document.addEventListener('keydown', (e) =>{ if(e.key === 'Escape' && lightbox.classList.contains('is-open')){ e.stopImmediatePropagation(); closeLb() } }, true)
 }
 
 /*=============================================================
@@ -512,4 +511,157 @@ if(lightbox){
     // redesenha quando o tema muda
     new MutationObserver(() =>{ if(!running) draw(performance.now()) }).observe(document.body, { attributes: true, attributeFilter: ['class'] })
     document.addEventListener('visibilitychange', () =>{ if(!document.hidden) wake() })
+}
+
+
+/*==================== JANELA DE DETALHES DOS PROJETOS ====================*/
+{
+    const data = window.PROJECTS || []
+    const cards = [...document.querySelectorAll('.work__card[data-project]')]
+    if(data.length && cards.length){
+        const esc = (t) => String(t).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))
+        const byId = Object.fromEntries(data.map(p => [p.id, p]))
+
+        const modal = document.createElement('div')
+        modal.className = 'pmodal'
+        modal.setAttribute('role', 'dialog')
+        modal.setAttribute('aria-modal', 'true')
+        modal.setAttribute('aria-hidden', 'true')
+        modal.innerHTML = `
+            <article class="pmodal__box" tabindex="-1">
+                <button class="pmodal__close" type="button" aria-label="Fechar">&times;</button>
+                <div class="pmodal__content"></div>
+                <nav class="pmodal__nav">
+                    <button class="pmodal__navbtn pmodal__prev" type="button"><i class="uil uil-arrow-left"></i><span></span></button>
+                    <span class="pmodal__count"></span>
+                    <button class="pmodal__navbtn pmodal__next" type="button"><span></span><i class="uil uil-arrow-right"></i></button>
+                </nav>
+            </article>`
+        document.body.appendChild(modal)
+
+        const box = modal.querySelector('.pmodal__box')
+        const content = modal.querySelector('.pmodal__content')
+        const prevBtn = modal.querySelector('.pmodal__prev')
+        const nextBtn = modal.querySelector('.pmodal__next')
+        const count = modal.querySelector('.pmodal__count')
+        let list = [], index = 0, lastFocus = null
+
+        // A navegação segue o filtro ativo (só os cards visíveis)
+        const visibleIds = () => cards.filter(c => !c.classList.contains('is-hidden')).map(c => c.dataset.project)
+
+        const render = (p) =>{
+            const hero = p.img
+                ? `<img class="pmodal__hero-img" src="assets/img/${esc(p.img)}" alt="${esc(p.title)}" title="Clique para ampliar">`
+                : `<div class="pmodal__hero-fallback ${esc(p.fallback ? p.fallback[0] : 'work__banner--ia')}"><i class="uil ${esc(p.fallback ? p.fallback[1] : 'uil-robot')}"></i></div>`
+            const flowN = p.flow.length
+            content.innerHTML = `
+                <header class="pmodal__hero ${p.img ? '' : 'pmodal__hero--noimg'}">
+                    <div class="pmodal__hero-media">${hero}</div>
+                    <div class="pmodal__hero-info">
+                        <span class="pmodal__badge">${esc(p.catLabel)}</span>
+                        <h3 class="pmodal__title">${esc(p.title)}</h3>
+                        <span class="pmodal__tag">${esc(p.tag)}</span>
+                    </div>
+                </header>
+
+                <div class="pmodal__body">
+                    <p class="pmodal__lead pm-in" style="--s:0">${esc(p.lead)}</p>
+
+                    <div class="pmodal__cols">
+                        <section class="pmodal__card pm-in" style="--s:1">
+                            <h4 class="pmodal__h"><i class="uil uil-crosshair"></i> O desafio</h4>
+                            <p>${esc(p.challenge)}</p>
+                        </section>
+                        <section class="pmodal__card pm-in" style="--s:2">
+                            <h4 class="pmodal__h"><i class="uil uil-wrench"></i> O que eu fiz</h4>
+                            <ul class="pmodal__actions">
+                                ${p.actions.map((a, i) => `<li style="--a:${i}"><i class="uil uil-check"></i><span>${esc(a)}</span></li>`).join('')}
+                            </ul>
+                        </section>
+                    </div>
+
+                    <section class="pm-in" style="--s:3">
+                        <h4 class="pmodal__h"><i class="uil uil-sitemap"></i> Como funciona</h4>
+                        <div class="pflow" style="--n:${flowN}">
+                            <div class="pflow__track"><span class="pflow__dot"></span></div>
+                            ${p.flow.map(([ic, t, sub], i) => `
+                                <div class="pflow__step" style="--i:${i}">
+                                    <div class="pflow__icon"><i class="uil ${esc(ic)}"></i><span class="pflow__num">${i + 1}</span></div>
+                                    <strong>${esc(t)}</strong>
+                                    <small>${esc(sub)}</small>
+                                </div>`).join('')}
+                        </div>
+                    </section>
+
+                    <section class="pm-in" style="--s:4">
+                        <h4 class="pmodal__h"><i class="uil uil-trophy"></i> Resultados</h4>
+                        <div class="pmodal__results">
+                            ${p.results.map(([ic, t, sub], i) => `
+                                <div class="presult" style="--r:${i}">
+                                    <i class="uil ${esc(ic)}"></i>
+                                    <div><strong>${esc(t)}</strong><span>${esc(sub)}</span></div>
+                                </div>`).join('')}
+                        </div>
+                    </section>
+
+                    <section class="pm-in" style="--s:5">
+                        <h4 class="pmodal__h"><i class="uil uil-layers"></i> Ferramentas</h4>
+                        <ul class="pmodal__stack">${p.stack.map((t, i) => `<li style="--c:${i}">${esc(t)}</li>`).join('')}</ul>
+                    </section>
+                </div>`
+
+            const prev = byId[list[(index - 1 + list.length) % list.length]]
+            const next = byId[list[(index + 1) % list.length]]
+            prevBtn.querySelector('span').textContent = prev.title
+            nextBtn.querySelector('span').textContent = next.title
+            prevBtn.style.visibility = nextBtn.style.visibility = list.length > 1 ? 'visible' : 'hidden'
+            count.textContent = `${index + 1} / ${list.length}`
+            content.scrollTop = 0
+            box.scrollTop = 0
+        }
+
+        const show = (id, dir = 0) =>{
+            index = Math.max(0, list.indexOf(id))
+            if(dir && modal.classList.contains('is-open')){
+                box.classList.remove('pm-slide-l', 'pm-slide-r'); void box.offsetWidth
+                box.classList.add(dir > 0 ? 'pm-slide-l' : 'pm-slide-r')
+            }
+            render(byId[id])
+        }
+
+        const open = (id) =>{
+            list = visibleIds()
+            if(!list.includes(id)) list = data.map(p => p.id)
+            lastFocus = document.activeElement
+            show(id)
+            modal.classList.add('is-open')
+            modal.setAttribute('aria-hidden', 'false')
+            document.body.classList.add('cmodal-lock')
+            setTimeout(() => box.focus({ preventScroll: true }), 50)
+        }
+        const close = () =>{
+            modal.classList.remove('is-open')
+            modal.setAttribute('aria-hidden', 'true')
+            document.body.classList.remove('cmodal-lock')
+            if(lastFocus) lastFocus.focus({ preventScroll: true })
+        }
+        const step = (d) => show(list[(index + d + list.length) % list.length], d)
+
+        cards.forEach(card =>{
+            card.addEventListener('click', () => open(card.dataset.project))
+            card.addEventListener('keydown', (e) =>{
+                if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(card.dataset.project) }
+            })
+        })
+        modal.querySelector('.pmodal__close').addEventListener('click', close)
+        modal.addEventListener('click', (e) =>{ if(e.target === modal) close() })
+        prevBtn.addEventListener('click', () => step(-1))
+        nextBtn.addEventListener('click', () => step(1))
+        document.addEventListener('keydown', (e) =>{
+            if(!modal.classList.contains('is-open')) return
+            if(e.key === 'Escape') close()
+            if(e.key === 'ArrowRight') step(1)
+            if(e.key === 'ArrowLeft') step(-1)
+        })
+    }
 }
