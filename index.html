@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html lang="en">
+    <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +7,16 @@
         <!--==================== UNICONS ====================-->
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
         
-        <!--==================== SWIPER CSS ====================-->
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
         
         <!--==================== CSS ====================-->
         <link rel="stylesheet" href="assets/css/styles.css">
 
-        <title>Portfólio Marcos Mineiro</title>
+        <title>Marcos Mineiro | CRM, Dados e IA</title>
+        <meta name="description" content="Portfólio de Marcos Mineiro: projetos acadêmicos, de CRM (Salesforce Marketing Cloud, Airship) e de Dados e IA.">
     </head>
     <body>
         <!--==================== HEADER ====================-->
+        <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
         <header class="header" id="header">
         
             <nav class="nav container">
@@ -47,11 +47,11 @@
                         </li>
                         <li class="nav_item">
                             <a href="#portfolio" class="nav__link">
-                                <i class="uil uil-scenery nav__icon"></i>  Portfolio
+                                <i class="uil uil-scenery nav__icon"></i> Projetos
                             </a>
                         </li>
                         <li class="nav_item">
-                            <a href="#contact" class="nav__link">
+                            <a href="#contact" class="nav__link js-contact-open">
                                 <i class="uil uil-message nav__icon"></i> Contate-me
                                 
                             </a>
@@ -62,7 +62,10 @@
 
                 <div class="nav__btns">
                     <!--Botão de mudança de tema-->
-                    <i class="uil uil-moon change-theme" id="theme-button"></i>
+                    <button class="change-theme" id="theme-button" type="button" aria-label="Alternar tema claro/escuro">
+                        <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+                        <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+                    </button>
 
                     <div class="nav__toggle" id="nav-toggle">
                         <i class="uil uil-apps"></i>
@@ -108,7 +111,7 @@
                                     129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
                                     -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
                                    
-                                    <image class="home__blob-img" x="12"  xlink:href="assets/img/perfil3.PNG"/>
+                                    <image class="home__blob-img" x="0" y="-6" width="200" height="200" preserveAspectRatio="xMidYMid slice" xlink:href="assets/img/perfil-marcos.jpg"/>
                                 </g>
                             </svg>
                         </div>
@@ -116,19 +119,19 @@
 
                         <div class="home__data">
                             <h1 class="home__title">Oi, Sou o Marcos</h1>
-                            <h3 class="home__subtitle"> CRM | Google Cloud | Salesforce Marketing Cloud | IA | Dados</h3>
-                            <p class="home__description">Atuo com automação de dados e criação de jornadas no Salesforce Marketing Cloud, com foco em integração, segmentação e otimização de campanhas processos através da análise de dados, IA e soluções em nuvem.</p>
-                            <a href="#contact" class="button button--flex">
+                            <h3 class="home__subtitle" aria-label="CRM, Salesforce Marketing Cloud, Dados e IA">Trabalho com <span class="typed" data-words="CRM|Salesforce Marketing Cloud|Dados|Inteligência Artificial|Automação">CRM</span><span class="typed__caret" aria-hidden="true"></span></h3>
+                            <p class="home__description">Crio jornadas, campanhas e automações de CRM no Salesforce Marketing Cloud e no Airship, e uso dados e IA para segmentar melhor, entregar com mais qualidade e tirar trabalho manual do caminho.</p>
+                            <a href="#contact" class="button button--flex js-contact-open">
                                 Contate-me <i class="uil uil-message button__icon"></i>
                             </a>
                         </div>
                     </div>
                 
                     <div class="home__scroll">
-                        <a href="#about" class="home__scroll-button button--flex">
-                            <i class="uil uil-mouse-alt home__scroll-mouse"></i>
+                        <a href="#about" class="home__scroll-button">
+                            <span class="home__scroll-mouse" aria-hidden="true"><span class="home__scroll-wheel"></span></span>
                             <span class="home__scroll-name">Descer</span>
-                            <i class="uil uil-arrow-down home__scroll-arrow"></i>
+                            <svg class="home__scroll-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
                         </a>
                     </div>
                 </div>
@@ -143,27 +146,27 @@
                     <img src="assets/img/Google.jpeg" alt="" class="about__img">
 
                     <div class="about__data">
-                        <p class="about__description">Estudante de Ciência da Computação (UFMA), Atualmente atuo com foco em automação de dados e criação de jornadas personalizadas dentro do Salesforce Marketing Cloud, além de gerenciar e registrar atividades no Azure DevOps. Tenho experiência com integração de dados, segmentação de clientes, construção de fluxos no Journey Builder e automações com SFTP. Busco constantemente otimizar campanhas e processos através da análise de dados e soluções em nuvem.
+                        <p class="about__description">Sou bacharel em Ciência da Computação pela UFMA e trabalho com CRM, dados e IA. Na Pmweb, criei e personalizei jornadas, campanhas, push e in-app no Airship e no Salesforce Marketing Cloud para grandes marcas, com checklist e QA em cada entrega. Antes, na Equatorial, construí jornadas e e-mails em AMPscript, fiz análises em SQL sobre Data Lake e Snowflake e liderei a frente técnica de treinamento de um modelo de OCR no Google Cloud. Hoje uso IA para automatizar processos do dia a dia de CRM, da abertura de demandas à validação antes do QA.
                         </p>
                         <div class="about__info">
                             <div>
-                                <span class="about__info-title">03+</span>
-                                <span class="about__info-name">Ano<br> experiência</span>
+                                <span class="about__info-title">04+</span>
+                                <span class="about__info-name">Anos de<br> experiência</span>
                             </div>
 
                             <div>
-                                <span class="about__info-title">05+</span>
+                                <span class="about__info-title">10+</span>
                                 <span class="about__info-name">Projetos <br> completos</span>
                             </div>
 
                             <div>
-                                <span class="about__info-title">03+</span>
+                                <span class="about__info-title">05+</span>
                                 <span class="about__info-name">Empresas <br> trabalhadas</span>
                             </div>
                         </div>
 
                         <div class="about__buttons">
-                            <a download="" href="assets/pdf/MarcosMIneiroCV1 (2).pdf" class="button button--flex">
+                            <a download="Marcos-Mineiro-CV.pdf" href="assets/pdf/Marcos-Mineiro-CV.pdf" class="button button--flex" id="cv-download">
                                 download CV<i class="uil uil-download-alt button__icon"></i>
 
                             </a>
@@ -175,17 +178,17 @@
             <!--==================== HABILIDADES ====================-->
             <section class="skills section" id="skills">
                 <h2 class="section__title">Habilidades</h2>
-                <span class="section__subtitle">Meu nível técnico 1</span>
+                <span class="section__subtitle">Meu nível técnico</span>
 
                 <div class="skills__container container grid">
                     <div>
-                        <div class="skills__content skills__open" >
+                        <div class="skills__content skills__close">
                             <div class="skills__header">
                                 <i class="uil uil-brackets-curly skills__icon"></i>
                                 
                                 <div>
-                                    <h1 class="skills__titles">Desenvolvedor Web</h1>
-                                    <span class="skills__subtitle">2 ano de expêriencia</span>
+                                    <h1 class="skills__titles">Desenvolvimento Web</h1>
+                                    <span class="skills__subtitle">3 anos de experiência</span>
                                 </div>
 
                                 <i class="uil uil-angle-down skills__arrow"></i>
@@ -237,10 +240,10 @@
 
                         <div class="skills__content skills__close">
                             <div class="skills__header">
-                                <i class="uil uil-signal-alt-3 skills__icon"></i>
+                                <i class="uil uil-chart-pie-alt skills__icon"></i>
                                 <div>
-                                    <h1 class="skills__titles">Power BI</h1>
-                                    <span class="skills__subtitle">1 ano de expêriencia</span>
+                                    <h1 class="skills__titles">Dados & IA</h1>
+                                    <span class="skills__subtitle">2 anos de experiência</span>
                                 </div>
 
                                 <i class="uil uil-angle-down skills__arrow"></i>
@@ -249,50 +252,56 @@
                             <div class="skills__list grid">
                                 <div class="skills__data">
                                     <div class="skills__titles">
-                                        <h3 class="skills__name">Criação de Dashboards</h3>
-                                        <span class="skills__number">40%</span>
+                                        <h3 class="skills__name">SQL (Snowflake, PostgreSQL, SQL Server)</h3>
+                                        <span class="skills__number">70%</span>
                                     </div>
                                     <div class="skills__bar">
-                                        <span class="skills__percentage skills__dash"></span>
+                                        <span class="skills__percentage" style="width: 70%"></span>
                                     </div>
                                 </div>
-
                                 <div class="skills__data">
                                     <div class="skills__titles">
-                                        <h3 class="skills__name">Manipulação de dados</h3>
+                                        <h3 class="skills__name">Power BI (DAX e linguagem M)</h3>
+                                        <span class="skills__number">60%</span>
+                                    </div>
+                                    <div class="skills__bar">
+                                        <span class="skills__percentage" style="width: 60%"></span>
+                                    </div>
+                                </div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name">Python para análise de dados</h3>
                                         <span class="skills__number">55%</span>
                                     </div>
                                     <div class="skills__bar">
-                                        <span class="skills__percentage skills__dados"></span>
+                                        <span class="skills__percentage" style="width: 55%"></span>
                                     </div>
                                 </div>
                                 <div class="skills__data">
                                     <div class="skills__titles">
-                                        <h3 class="skills__name">Uso de função Dax</h3>
+                                        <h3 class="skills__name">Google Cloud e BigQuery</h3>
                                         <span class="skills__number">55%</span>
                                     </div>
                                     <div class="skills__bar">
-                                        <span class="skills__percentage skills__dados"></span>
+                                        <span class="skills__percentage" style="width: 55%"></span>
                                     </div>
                                 </div>
-
                                 <div class="skills__data">
                                     <div class="skills__titles">
-                                        <h3 class="skills__name">PostgreSQL</h3>
-                                        <span class="skills__number">50%</span>
+                                        <h3 class="skills__name">IA generativa e prompts para automação</h3>
+                                        <span class="skills__number">75%</span>
                                     </div>
                                     <div class="skills__bar">
-                                        <span class="skills__percentage skills__sql"></span>
+                                        <span class="skills__percentage" style="width: 75%"></span>
                                     </div>
                                 </div>
-
                                 <div class="skills__data">
                                     <div class="skills__titles">
-                                        <h3 class="skills__name">Linguagem M</h3>
-                                        <span class="skills__number">30%</span>
+                                        <h3 class="skills__name">Datasets e treinamento de modelos (OCR)</h3>
+                                        <span class="skills__number">60%</span>
                                     </div>
                                     <div class="skills__bar">
-                                        <span class="skills__percentage skills__M"></span>
+                                        <span class="skills__percentage" style="width: 60%"></span>
                                     </div>
                                 </div>
                             </div>
@@ -304,7 +313,7 @@
                                 <i class="uil uil-desktop skills__icon"></i>
                                 <div>
                                     <h1 class="skills__titles">Suporte TI</h1>
-                                    <span class="skills__subtitle">3 anos de expêriencia</span>
+                                    <span class="skills__subtitle">3 anos de experiência</span>
                                 </div>
                                 <i class="uil uil-angle-down skills__arrow"></i>
                             </div>
@@ -353,8 +362,8 @@
                         <div class="skills__header">
                             <i class="uil uil-cloud-data-connection skills__icon"></i>
                             <div>
-                                <h1 class="skills__titles">Salesforce MC</h1>
-                                <span class="skills__subtitle">1 ano de experiência</span>
+                                <h1 class="skills__titles">CRM & Marketing Cloud</h1>
+                                <span class="skills__subtitle">2 anos de experiência</span>
                             </div>
                             <i class="uil uil-angle-down skills__arrow"></i>
                         </div>
@@ -397,6 +406,15 @@
                                     <span class="skills__percentage skills__sfmc_data"></span>
                                 </div>
                             </div>
+                            <div class="skills__data">
+                                <div class="skills__titles">
+                                    <h3 class="skills__name">Push e In-App (Airship)</h3>
+                                    <span class="skills__number">80%</span>
+                                </div>
+                                <div class="skills__bar">
+                                    <span class="skills__percentage" style="width: 80%"></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     </div>
@@ -427,11 +445,11 @@
                 <div class="qualification__data">
                     
                     <div>
-                        <h3 class="qualification__title">Ciências da Computação</h3>
+                        <h3 class="qualification__title">Bacharelado em Ciência da Computação</h3>
                         <span class="qualification__subtitle">Universidade Federal do Maranhão - Brasil</span>
                         <div class="qualification__calendar">
                             <i class="uil uil-calendar-alt"></i>
-                            2021 - cursando
+                            2021 - 2026
                         </div> 
                     </div>
 
@@ -558,28 +576,34 @@
               <div class="qualification__content" data-content id="work">
             <div class="qualification__data">
                 <div>
-                    <h3 class="qualification__title">Estágio em CRM, Dados e Automação</h3>
-                    <span class="qualification__subtitle">Equatorial Serviços - São Luís</span>
+                    <h3 class="qualification__title">Analista de Campanhas Digitais</h3>
+                    <span class="qualification__subtitle">Pmweb - São Paulo</span>
                     <div class="qualification__calendar">
                         <i class="uil uil-calendar-alt"></i>
-                        2025 - Atual
-                    </div> 
+                        2026
+                    </div>
                 </div>
-
                 <div>
                     <span class="qualification__rounder"></span>
                     <span class="qualification__line"></span>
                 </div>
             </div>
-
             <div class="qualification__data">
                 <div></div>
-
                 <div>
                     <span class="qualification__rounder"></span>
                     <span class="qualification__line"></span>
                 </div>
-
+                <div>
+                    <h3 class="qualification__title">Estágio em CRM, Dados, Automação e IA</h3>
+                    <span class="qualification__subtitle">Equatorial Serviços - São Luís</span>
+                    <div class="qualification__calendar">
+                        <i class="uil uil-calendar-alt"></i>
+                        2025 - 2026
+                    </div>
+                </div>
+            </div>
+            <div class="qualification__data">
                 <div>
                     <h3 class="qualification__title">Desenvolvedor Web</h3>
                     <span class="qualification__subtitle">AGEUFMA - São Luís</span>
@@ -588,9 +612,17 @@
                         2024 - 2025
                     </div>
                 </div>
+                <div>
+                    <span class="qualification__rounder"></span>
+                    <span class="qualification__line"></span>
+                </div>
             </div>
-                
             <div class="qualification__data">
+                <div></div>
+                <div>
+                    <span class="qualification__rounder"></span>
+                    <span class="qualification__line"></span>
+                </div>
                 <div>
                     <h3 class="qualification__title">Desenvolvedor Web</h3>
                     <span class="qualification__subtitle">Freelancer - Home Office</span>
@@ -599,18 +631,8 @@
                         2023 - Atual
                     </div>
                 </div>
-                <div>
-                    <span class="qualification__rounder"></span>
-                    <span class="qualification__line"></span>
-                </div>
             </div>
-            
             <div class="qualification__data">
-                <div></div>
-                <div>
-                    <span class="qualification__rounder"></span>
-                    <span class="qualification__line"></span>
-                </div>
                 <div>
                     <h3 class="qualification__title">Suporte de Rede de Internet</h3>
                     <span class="qualification__subtitle">FIXTELL - São Luís</span>
@@ -619,9 +641,16 @@
                         2023 - 2024
                     </div>
                 </div>
+                <div>
+                    <span class="qualification__rounder"></span>
+                    <span class="qualification__line"></span>
+                </div>
             </div>
-            
             <div class="qualification__data">
+                <div></div>
+                <div>
+                    <span class="qualification__rounder"></span>
+                </div>
                 <div>
                     <h3 class="qualification__title">Estágio em Suporte Técnico</h3>
                     <span class="qualification__subtitle">DRSUPORTI - São Luís</span>
@@ -630,9 +659,6 @@
                         2022 - 2023
                     </div>
                 </div>
-                <div>
-                    <span class="qualification__rounder"></span>
-                    </div>
             </div>
         </div>
                             
@@ -648,13 +674,86 @@
                 <span class="section__subtitle">Serviços oferecidos</span>
 
                 <div class="services__container container grid">
-                    <!--services 1-->
+                    <div class="services__content">
+                        <div>
+                            <i class="uil uil-envelope-send services__icon"></i>
+                            <h3 class="services__title">CRM e <br> Marketing Cloud</h3>
+                        </div>
+
+                        <span class="button button--flex button--small button--link services__button">
+                            Ver mais
+                            <i class="uil uil-arrow-right button__icon"></i>
+                        </span>
+
+                        <div class="services__modal">
+                            <div class="services__modal-content">
+                                <h4 class="services__modal-title">CRM e Marketing Cloud</h4>
+                                <i class="uil uil-times services__modal-close"></i>
+
+                                <ul class="services__modal-services grid">
+                                    <li class="services__modal-service">
+                                        <i class="uil uil-check-circle services__modal-icon"></i>
+                                        <p>Jornadas e campanhas no Salesforce Marketing Cloud (Journey Builder e Automation Studio).</p>
+                                    </li>
+                                    <li class="services__modal-service">
+                                        <i class="uil uil-check-circle services__modal-icon"></i>
+                                        <p>E-mails personalizados em AMPscript e HTML responsivo.</p>
+                                    </li>
+                                    <li class="services__modal-service">
+                                        <i class="uil uil-check-circle services__modal-icon"></i>
+                                        <p>Push, in-app e WhatsApp em jornada (Airship e SFMC).</p>
+                                    </li>
+                                    <li class="services__modal-service">
+                                        <i class="uil uil-check-circle services__modal-icon"></i>
+                                        <p>Checklist e QA de campanhas antes do disparo.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="services__content">
+                        <div>
+                            <i class="uil uil-robot services__icon"></i>
+                            <h3 class="services__title">Dados e <br> IA</h3>
+                        </div>
+
+                        <span class="button button--flex button--small button--link services__button">
+                            Ver mais
+                            <i class="uil uil-arrow-right button__icon"></i>
+                        </span>
+
+                        <div class="services__modal">
+                            <div class="services__modal-content">
+                                <h4 class="services__modal-title">Dados e IA</h4>
+                                <i class="uil uil-times services__modal-close"></i>
+
+                                <ul class="services__modal-services grid">
+                                    <li class="services__modal-service">
+                                        <i class="uil uil-check-circle services__modal-icon"></i>
+                                        <p>Consultas e análises em SQL (Snowflake, Data Lake, PostgreSQL).</p>
+                                    </li>
+                                    <li class="services__modal-service">
+                                        <i class="uil uil-check-circle services__modal-icon"></i>
+                                        <p>Dashboards em Power BI, do protótipo no Figma ao DAX.</p>
+                                    </li>
+                                    <li class="services__modal-service">
+                                        <i class="uil uil-check-circle services__modal-icon"></i>
+                                        <p>Automação de processos com IA generativa e prompts estruturados.</p>
+                                    </li>
+                                    <li class="services__modal-service">
+                                        <i class="uil uil-check-circle services__modal-icon"></i>
+                                        <p>Estruturação de datasets para treinamento de modelos.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     <div class="services__content">
                         <div>
                             <i class="uil uil-web-grid services__icon"></i>
-                            <h3 class="services__title">Desenvolvedor Web</h3>
+                            <h3 class="services__title">Web e <br> Suporte</h3>
                         </div>
-                        
+
                         <span class="button button--flex button--small button--link services__button">
                             Ver mais
                             <i class="uil uil-arrow-right button__icon"></i>
@@ -662,187 +761,209 @@
 
                         <div class="services__modal">
                             <div class="services__modal-content">
-                                <h4 class="services__modal-title">Desenvolvedor Web</h4>
+                                <h4 class="services__modal-title">Web e Suporte</h4>
                                 <i class="uil uil-times services__modal-close"></i>
 
                                 <ul class="services__modal-services grid">
                                     <li class="services__modal-service">
                                         <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Criação de portfolio web.</p>
+                                        <p>Criação de portfólios, páginas web e agregadores de links.</p>
                                     </li>
                                     <li class="services__modal-service">
                                         <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Criação de TreeLinks</p>
+                                        <p>Manutenção preventiva de notebooks e computadores.</p>
                                     </li>
                                     <li class="services__modal-service">
                                         <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Criação de páginas Web em geral.</p>
+                                        <p>Resolução de problemas de hardware, software e rede.</p>
                                     </li>
                                 </ul>
-
-
                             </div>
                         </div>
-
-                    </div>
-                     <!--services 2-->
-                     <div class="services__content">
-                        <div>
-                            <i class="uil uil-desktop services__icon"></i>
-                            <h3 class="services__title">Suporte Técnico</h3>
-                        </div>
-                        
-                        <span class="button button--flex button--small button--link services__button">
-                            Ver mais
-                            <i class="uil uil-arrow-right button__icon"></i>
-                        </span>
-
-                        <div class="services__modal">
-                            <div class="services__modal-content">
-                                <h4 class="services__modal-title">Suporte Técnico</h4>
-                                <i class="uil uil-times services__modal-close"></i>
-
-                                <ul class="services__modal-services grid">
-                                    <li class="services__modal-service">
-                                        <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Manutenção Preventiva para Notebooks e Computadores.</p>
-                                    </li>
-                                    <li class="services__modal-service">
-                                        <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Resolução de problemas de Hadware e Software em geral</p>
-                                    </li>
-                                    <li class="services__modal-service">
-                                        <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Ativação e instalação de office e Windows.</p>
-                                    </li>
-                                </ul>
-
-
-                            </div>
-                        </div>
-
-                    </div>
-                     <!--services 3-->
-                     <div class="services__content">
-                        <div>
-                            <i class="uil uil-database services__icon"></i>
-                            <h3 class="services__title">Analise de dados</h3>
-                        </div>
-                        
-                        <span class="button button--flex button--small button--link services__button">
-                            Ver mais
-                            <i class="uil uil-arrow-right button__icon"></i>
-                        </span>
-
-                        <div class="services__modal">
-                            <div class="services__modal-content">
-                                <h4 class="services__modal-title">Analise  de dados</h4>
-                                <i class="uil uil-times services__modal-close"></i>
-
-                                <ul class="services__modal-services grid">
-                                    <li class="services__modal-service">
-                                        <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Criação de interfaces para dashboards utilizando o Figma.</p>
-                                    </li>
-                                    <li class="services__modal-service">
-                                        <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Modelagem de Dados</p>
-                                    </li>
-                                    <li class="services__modal-service">
-                                        <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Construção de Dashboard via Power BI</p>
-                                    </li>
-                                </ul>
-
-
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
-                
             </section>
         
             <!--==================== PORTFOLIO ====================-->
-        <section class="portfolio section" id="portfolio">
-                <h2 class="section__title">Portfólio</h2>
-                <span class="section__subtitle">Trabalhos mais recentes</span>
-               
-                <div class="portfolio__container container swiper-container">
-                    <div class="swiper-wrapper">
-                        <!--PORTFOLIO 1-->
-                        <div class="portfolio__content grid swiper-slide">
-                            <img src="assets/img/portfolio1.jpg" alt="" class="portfolio__img">
-                            <div class="portfolio__data">
-                                <h3 class="portfolio__title">TreeLinks Dinâmico</h3>
-                                <p class="portfolio__description">TreeLinks para acesso a redes socias profissionais.</p>
-                                <a href="#" class="button button--flex button--small portfolio__button">
-                                    Demonstração
-                                    <i class="uil uil-arrow-right button__icon"></i>
-                                </a>
-                            </div>
-                        </div>
-                         <!--PORTFOLIO 2-->
-                         <div class="portfolio__content grid swiper-slide">
-                            <img src="assets/img/portfolio2.jpg" alt="" class="portfolio__img">
+            <section class="portfolio section" id="portfolio">
+                <h2 class="section__title">Projetos</h2>
+                <span class="section__subtitle">Meus trabalhos, por área</span>
 
-                            <div class="portfolio__data">
-                                <h3 class="portfolio__title">Dashboards Interativos</h3>
-                                <p class="portfolio__description">TreeLinks para acesso a redes socias profissionais.
-                                </p>
-                                <a href="#" class="button button--flex button--small portfolio__button">
-                                    Demonstração
-                                    <i class="uil uil-arrow-right button__icon"></i>
-                                </a>
-
-                            </div>
-                        </div>
-                        
-                        <!--PORTFOLIO 3-->
-                        <div class="portfolio__content grid swiper-slide">
-                            <img src="assets/img/portfolio3.jpg" alt="" class="portfolio__img">
-
-                            <div class="portfolio__data">
-                                <h3 class="portfolio__title">Suporte Técnico</h3>
-                                <p class="portfolio__description">TreeLinks para acesso a redes socias profissionais.
-                                </p>
-                                <a href="#" class="button button--flex button--small portfolio__button">
-                                    Demonstração
-                                    <i class="uil uil-arrow-right button__icon"></i>
-                                </a>
-                            </div>
-                        </div>                        
+                <div class="container">
+                    <div class="work__filters" role="tablist" aria-label="Filtrar projetos">
+                        <button class="work__filter work__filter--active" data-filter="all">Todos</button>
+                        <button class="work__filter" data-filter="academico"><i class="uil uil-graduation-cap"></i> Acadêmicos</button>
+                        <button class="work__filter" data-filter="crm"><i class="uil uil-envelope-send"></i> CRM</button>
+                        <button class="work__filter" data-filter="dados-ia"><i class="uil uil-chart-pie-alt"></i> Dados e IA</button>
                     </div>
 
-                    <!--Add Arrows-->
-                    <div class="swiper-button-next">
-                        <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
-                    </div>
-                    <div class="swiper-button-prev">
-                        <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
-                    </div>
+                    <div class="work__grid">
 
-                    <div class="swiper-pagination"></div>
+                        <!--==================== CRM ====================-->
+                        <article class="work__card" data-category="crm">
+                            <div class="work__banner work__banner--img"><img src="assets/img/projeto-jornadas-push-inapp.jpg" alt="Ilustração do projeto de jornadas, push e in-app" loading="lazy"></div>
+                            <div class="work__body">
+                                <span class="work__tag">CRM · Pmweb · 2026</span>
+                                <h3 class="work__title">Jornadas, push e in-app para grandes marcas</h3>
+                                <p class="work__description">Criação e personalização de jornadas, campanhas, mensagens in-app e push para clientes da agência, com processo de checklist e QA antes de cada disparo e rotina ágil.</p>
+                                <ul class="work__stack">
+                                    <li>Airship</li><li>SFMC</li><li>Data Cloud</li><li>Agile</li>
+                                </ul>
+                            </div>
+                        </article>
 
-                    
-                    
-                    
+                        <article class="work__card" data-category="crm">
+                            <div class="work__banner work__banner--img"><img src="assets/img/projeto-email-whatsapp.jpg" alt="Ilustração do projeto de e-mail e WhatsApp em jornada" loading="lazy"></div>
+                            <div class="work__body">
+                                <span class="work__tag">CRM · Pmweb · 2026</span>
+                                <h3 class="work__title">E-mail e WhatsApp em jornada — conta de mídia</h3>
+                                <p class="work__description">Execução de demandas de Salesforce Marketing Cloud a partir de briefings no Notion: disparos pontuais de e-mail e mensagens de WhatsApp dentro de jornadas, com controle de entregas no Jira.</p>
+                                <ul class="work__stack">
+                                    <li>SFMC</li><li>Journey Builder</li><li>WhatsApp</li><li>Notion</li><li>Jira</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="work__card" data-category="crm">
+                            <div class="work__banner work__banner--img"><img src="assets/img/projeto-jornadas-multicanal.jpg" alt="Ilustração das jornadas multicanal e e-mails personalizados" loading="lazy"></div>
+                            <div class="work__body">
+                                <span class="work__tag">CRM · Equatorial · 2025</span>
+                                <h3 class="work__title">Jornadas multicanal e e-mails personalizados</h3>
+                                <p class="work__description">Jornadas personalizadas no Journey Builder, automações no Automation Studio com SFTP e e-mails em AMPscript e HTML responsivo, integrados a SAP, Salesforce CRM e Data Cloud.</p>
+                                <ul class="work__stack">
+                                    <li>SFMC</li><li>AMPscript</li><li>Automation Studio</li><li>SAP</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <!--==================== DADOS E IA ====================-->
+                        <article class="work__card" data-category="dados-ia crm">
+                            <div class="work__banner work__banner--ia"><i class="uil uil-robot"></i></div>
+                            <div class="work__body">
+                                <span class="work__tag">IA + CRM · 2026</span>
+                                <h3 class="work__title">Automação Notion → Jira com IA</h3>
+                                <p class="work__description">Agente que cria a issue no Jira com os campos padrão da conta a partir de só três entradas (link do card no Notion, tipo de demanda e nome) e já preenche a tabela de controle — menos trabalho manual e menos erro de cadastro.</p>
+                                <ul class="work__stack">
+                                    <li>IA generativa</li><li>Prompting</li><li>Jira</li><li>Notion</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="work__card" data-category="dados-ia crm">
+                            <div class="work__banner work__banner--img"><img src="assets/img/projeto-validacao-preqa.jpg" alt="Ilustração da validação pré-QA de campanhas com IA" loading="lazy"></div>
+                            <div class="work__body">
+                                <span class="work__tag">IA + CRM · 2026</span>
+                                <h3 class="work__title">Validação pré-QA de campanhas com IA</h3>
+                                <p class="work__description">Prompt estruturado que monta e confere as demandas de SFMC (WhatsApp em jornada e e-mails pontuais) a partir do briefing, antes de irem para o QA — pega inconsistências cedo e acelera a entrega.</p>
+                                <ul class="work__stack">
+                                    <li>Prompt engineering</li><li>SFMC</li><li>QA</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="work__card" data-category="dados-ia">
+                            <div class="work__banner work__banner--img"><img src="assets/img/projeto-ocr-google-cloud.jpg" alt="Ilustração do treinamento de modelo de OCR no Google Cloud" loading="lazy"></div>
+                            <div class="work__body">
+                                <span class="work__tag">IA · Equatorial · 2025</span>
+                                <h3 class="work__title">Treinamento de modelo de OCR no Google Cloud</h3>
+                                <p class="work__description">Responsável pela frente técnica de leitura automática de documentos: curadoria e classificação do dataset, identificação de padrões de erro e mapeamento das jornadas onde os documentos falham, com impacto no atendimento e no backoffice.</p>
+                                <ul class="work__stack">
+                                    <li>Google Cloud</li><li>OCR</li><li>Datasets</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="work__card" data-category="dados-ia">
+                            <div class="work__banner work__banner--dados"><i class="uil uil-database"></i></div>
+                            <div class="work__body">
+                                <span class="work__tag">Dados · Equatorial · 2025</span>
+                                <h3 class="work__title">Análises de clientes em Data Lake e Snowflake</h3>
+                                <p class="work__description">Consultas SQL em SAP, Data Lakes e Snowflake para análises de clientes, consumo e faturamento, com vivência em arquitetura Lakehouse, pipelines ETL/ELT e governança de dados.</p>
+                                <ul class="work__stack">
+                                    <li>SQL</li><li>Snowflake</li><li>Data Lake</li><li>ETL/ELT</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="work__card" data-category="dados-ia">
+                            <div class="work__banner work__banner--img"><img src="assets/img/projeto-powerbi.jpg" alt="Ilustração dos dashboards executivos em Power BI" loading="lazy"></div>
+                            <div class="work__body">
+                                <span class="work__tag">Dados · 2024 – 2025</span>
+                                <h3 class="work__title">Dashboards executivos em Power BI</h3>
+                                <p class="work__description">Dashboards e análises estratégicas para apoiar decisões, do protótipo da interface no Figma à modelagem com DAX e linguagem M.</p>
+                                <ul class="work__stack">
+                                    <li>Power BI</li><li>DAX</li><li>Figma</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="work__card" data-category="dados-ia">
+                            <div class="work__banner work__banner--img"><img src="assets/img/projeto-base-conhecimento.jpg" alt="Ilustração da base de conhecimento de suporte" loading="lazy"></div>
+                            <div class="work__body">
+                                <span class="work__tag">Dados · DrSuporti · 2022 – 2023</span>
+                                <h3 class="work__title">Base de conhecimento de suporte</h3>
+                                <p class="work__description">Ajudei a desenvolver um dataset de guias de solução para problemas recorrentes, acessível ao cliente — o número de chamados caiu e o time técnico ficou livre para os casos complexos.</p>
+                                <ul class="work__stack">
+                                    <li>Estruturação de dados</li><li>Autoatendimento</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <!--==================== ACADÊMICOS ====================-->
+                        <article class="work__card" data-category="academico">
+                            <div class="work__banner work__banner--img"><img src="assets/img/projeto-ageufma.jpg" alt="Ilustração das páginas institucionais da AGEUFMA" loading="lazy"></div>
+                            <div class="work__body">
+                                <span class="work__tag">Acadêmico · AGEUFMA · 2024 – 2025</span>
+                                <h3 class="work__title">Páginas institucionais da AGEUFMA</h3>
+                                <p class="work__description">Criação, atualização e manutenção das páginas da agência da UFMA em HTML, CSS e JavaScript, além da organização de dados no ambiente de consulta acadêmica.</p>
+                                <ul class="work__stack">
+                                    <li>HTML</li><li>CSS</li><li>JavaScript</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="work__card" data-category="academico dados-ia">
+                            <div class="work__banner work__banner--img"><img src="assets/img/projeto-tcc-lakehouse.jpg" alt="Ilustração do TCC sobre Data Lakehouse" loading="lazy"></div>
+                            <div class="work__body">
+                                <span class="work__tag">TCC · UFMA · 2026</span>
+                                <h3 class="work__title">Data Lakehouse para rastrear jornadas de comunicação</h3>
+                                <p class="work__description">Meu TCC aplica os princípios da arquitetura Data Lakehouse em pequena escala: um pipeline que leva os dados de engajamento do Salesforce Marketing Cloud para o Google Cloud em camadas Bronze, Prata e Ouro, com dashboards no Looker Studio, para dar rastreabilidade às jornadas B2B de uma grande distribuidora de energia. Defendido em julho de 2026.</p>
+                                <ul class="work__stack">
+                                    <li>BigQuery</li><li>Cloud Run</li><li>Cloud Storage</li><li>SFMC</li><li>Looker Studio</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="work__card" data-category="academico">
+                            <div class="work__banner work__banner--img"><img src="assets/img/projeto-integralab.jpg" alt="IntegraLAB, software registrado no INPI" loading="lazy"></div>
+                            <div class="work__body">
+                                <span class="work__tag">Acadêmico · UFMA · 2025 – 2026</span>
+                                <h3 class="work__title">IntegraLAB — software registrado no INPI</h3>
+                                <p class="work__description">Sou coautor da IntegraLAB, plataforma que integra os laboratórios de pesquisa da UFMA, desenvolvida com professor e colegas do curso. O programa tem registro no INPI (processo BR512026006099-0) em nome da universidade.</p>
+                                <ul class="work__stack">
+                                    <li>Java</li><li>JavaScript</li><li>SQL</li><li>Registro INPI</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                    </div>
                 </div>
-               
-
             </section>
             
 
             <!--==================== CONTATO PARA PROJETOS====================-->
-            <section class="project section">
+            <section class="project section" id="contact">
+                <h2 class="section__title">Contate-me</h2>
+                <span class="section__subtitle">Vamos trabalhar juntos</span>
+
                 <div class="project__bg">
                     <div class="project__container container grid">
                         <div class="project__data">
-                            <h2 class="project__title">Você tem um novo projeto?</h2>
-                            <p class="project__description">Contacte-me agora e ganhe 30% de desconto no seu novo projeto ou com problemas no seu Pc.
+                            <h2 class="project__title">Vamos conversar?</h2>
+                            <p class="project__description">Estou aberto a oportunidades e projetos em CRM, dados e IA. Me chama que eu respondo rápido.
                             </p>
-                            <a href="#contact" class="button button--flex button--white">
+                            <a href="#contact" class="button button--flex button--white js-contact-open">
                                 Contate-me 
                                 <i class="uil uil-message project__icon button__icon"></i>
                             </a>
@@ -851,147 +972,7 @@
                 </div>
             </section>
 
-            <!--==================== COMENTARIOS ====================-->
-            <section class="testimonial section">
-                <h2 class="section__title">Depoimentos</h2>
-                <span class="section__subtitle">Clientes</span>
-
-                <div class="testimonial__container container swiper-container">
-                    <div class="swiper-wrapper">
-                        <!--Testimonial 1-->
-                        <div class="testimonial__content swiper-slide">
-                            <div class="testimonial__data">
-                                <div class="testimonial__header">
-                                    <img src="assets/img/testimonial1.jpg" alt="" class="testimonial__img">
-
-                                    <div>
-                                        <h3 class="testimonial__name">Lorena Nayelle</h3>
-                                        <span class="testimonial__client">Cliente</span>
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <i class="uil uil-star testimonial__icon-star"></i>
-                                    <i class="uil uil-star testimonial__icon-star"></i>
-                                    <i class="uil uil-star testimonial__icon-star"></i>
-                                    <i class="uil uil-star testimonial__icon-star"></i>
-                                    <i class="uil uil-star testimonial__icon-star"></i>
-                                </div>
-                            </div>
-                            <p class="testimonial__description">Eu adorei meu threelink. 
-                                Ajudou demais com a organização do meu trabalho. 
-                                Marcos é um excelente profissional!
-                            </p>
-                        </div> 
-
-                        <div class="testimonial__content swiper-slide">
-                            <div class="testimonial__data">
-                                <div class="testimonial__header">
-                                    <img src="assets/img/testimonial2.jpg" alt="" class="testimonial__img">
-
-                                    <div>
-                                        <h3 class="testimonial__name">João Marcelo</h3>
-                                        <span class="testimonial__client">Cliente</span>
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <i class="uil uil-star testimonial__icon-star"></i>
-                                    <i class="uil uil-star testimonial__icon-star"></i>
-                                    <i class="uil uil-star testimonial__icon-star"></i>
-                                    <i class="uil uil-star testimonial__icon-star"></i>
-                                    <i class="uil uil-star testimonial__icon-star"></i>
-                                </div>
-                            </div>
-                            <p class="testimonial__description"> A Dashboard que eu fiz com Marcos foi muito boa, 
-                                ele ajudou muito com a organização do meu trabalho.
-                            </p>
-                        </div> 
-                    </div>
-
-                    <div class="swiper-pagination swiper-pagination-testimonial"></div>
-                </div>
-                <!--Add Comment Modal-->
-                <span class="add-comment button--link  add-comment__button">
-                    Adicionar Comentário
-                    <i class="uil uil-arrow-right button__icon"></i>
-                </span>    
-            </section>
-
-          
-                
-
-
-            <!--==================== CONTATE-ME ====================-->
-            <section class="contact section" id="contact">
-                <h2 class="section__title">Contate-me</h2>
-                <span class="section__subtitle">Fale comigo</span>
-
-                <div class="contact__container container grid">
-                    <div>
-                        <div class="contact__information">
-                            <i class="uil uil-phone contact__icon"></i>
-                            <div>
-                                <h3 class="contact__title">Telefone</h3>
-                                <span class="contact__subtitle">+55 98 99210-9057</span>
-                            </div>
-                        </div>
-                        
-                    
-                        <div class="contact__information">
-                            <i class="uil uil-envelope contact__icon"></i>
-                            <div>
-                                <h3 class="contact__title">E-mail</h3>
-                                <span class="contact__subtitle">marcus.mineiro2016@gmail.com</span>
-                            </div>
-
-                        </div>
-
-                        <div class="contact__information">
-                            <i class="uil uil-map-marker contact__icon"></i>
-                            <div>
-                                <h3 class="contact__title"> Localização</h3>
-                                <span class="contact__subtitle">São-Luis - Brasil</span>
-                            </div>
-                        </div>
-                    </div>
-
-                   <form id="contact-form" class="contact__form grid">
-                        <div class="contact__inputs grid">
-                            <div class="contact__content">
-                            <label for="name" class="contact__label">Nome</label>
-                            <input type="text" name="name" id="name" class="contact__input" required autocomplete="off">
-                            </div>
-                        </div>
-
-                        <div class="contact__inputs grid">
-                            <div class="contact__content">
-                            <label for="email" class="contact__label">E-mail</label>
-                            <input type="email" name="email" id="email" class="contact__input" required autocomplete="off">
-                            </div>
-                        </div>
-                        
-                        <div class="contact__content">
-                            <label for="project" class="contact__label">Projeto</label>
-                            <input type="text" name="project" id="project" class="contact__input" required autocomplete="off">
-                        </div>
-                        
-                        <div class="contact__content">
-                            <label for="message" class="contact__label">Mensagem</label>
-                            <textarea name="message" id="message" cols="0" rows="7" class="contact__input" required autocomplete="off"></textarea>
-                        </div>
-
-                        <div>
-                            <input type="submit" value="Enviar mensagem" class="button button--flex">
-                            <p id="status"></p>
-                        </div>
-                        </form>
-                    
-
-
-                </div>
-            </section>
-           
+            
         </main>
 
         <!--==================== FOOTER ====================-->
@@ -1000,7 +981,7 @@
                 <div class="footer__container container grid">
                     <div>
                         <h1 class="footer__title">Marcos Mineiro</h1>
-                        <span class="footer__subtitle">Desenvolvedor Web, Suporte TI, Analista de Dados</span>
+                        <span class="footer__subtitle">CRM, Dados e IA</span>
                     </div>
 
                     <ul class="footer__links">
@@ -1008,10 +989,10 @@
                             <a href="#services" class="footer__link">Serviços</a>
                         </li>
                         <li>
-                            <a href="#portfolio" class="footer__link">Portfolio</a>
+                            <a href="#portfolio" class="footer__link">Projetos</a>
                         </li>
                         <li>
-                            <a href="#contact" class="footer__link">Contato</a>
+                            <a href="#contact" class="footer__link js-contact-open">Contato</a>
                         </li>
                     </ul>
 
@@ -1033,63 +1014,49 @@
         </footer>
         
         
+        <!--==================== MODAL CONTATE-ME ====================-->
+        <div class="cmodal" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="cmodal-title" aria-hidden="true">
+            <div class="cmodal__content">
+                <button class="cmodal__close" type="button" aria-label="Fechar"><i class="uil uil-times"></i></button>
+                <h3 class="cmodal__title" id="cmodal-title">Vamos conversar?</h3>
+                <p class="cmodal__text">Escolha o canal que preferir. Respondo rápido.</p>
+
+                <div class="cmodal__options">
+                    <a href="https://wa.me/5598992109057?text=Ol%C3%A1%2C%20Marcos!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener" class="cmodal__option cmodal__option--wpp">
+                        <i class="uil uil-whatsapp cmodal__icon"></i>
+                        <span>
+                            <strong>WhatsApp</strong>
+                            <small>+55 98 99210-9057</small>
+                        </span>
+                        <i class="uil uil-arrow-right cmodal__arrow"></i>
+                    </a>
+                    <a href="mailto:marcus.mineiro2016@gmail.com?subject=Contato%20pelo%20portf%C3%B3lio" class="cmodal__option cmodal__option--mail">
+                        <i class="uil uil-envelope cmodal__icon"></i>
+                        <span>
+                            <strong>E-mail</strong>
+                            <small>marcus.mineiro2016@gmail.com</small>
+                        </span>
+                        <i class="uil uil-arrow-right cmodal__arrow"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!--==================== AMPLIAR IMAGEM DO PROJETO ====================-->
+        <div class="lightbox" id="lightbox" aria-hidden="true">
+            <button class="lightbox__close" type="button" aria-label="Fechar">&times;</button>
+            <img class="lightbox__img" src="" alt="">
+        </div>
+
         <!--==================== SCROLL up ====================-->
         <a href="#" class="scrollup" id="scroll-up">
             <i class="uil uil-arrow-up scrollup__icon"></i>
         </a>
         
 
-        <!--==================== SWIPER JS ====================-->
-        <script src="assets/js/swiper-bundle.min.js"></script>
 
         <!--==================== MAIN JS ====================-->
         <script src="assets/js/main.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const form = document.getElementById('contact-form');
-                const statusText = document.getElementById('status');
-                const endpoint = 'https://script.google.com/macros/s/AKfycbz-wosBC40IHRj2EVUMqXmCSGTy3r4akmjcOjeqVNUitFKvfuUh6RDhGlulwFvHuYkl/exec';
-
-                if (!form) {
-                console.error('Formulário de contato não encontrado!');
-                return;
-                }
-
-                form.addEventListener('submit', function (e) {
-                e.preventDefault(); // impede o POST pro bucket
-
-                statusText.textContent = 'Enviando...';
-
-                const nome = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const projeto = document.getElementById('project').value;
-                const mensagemTexto = document.getElementById('message').value;
-
-                const payload = {
-                    nome: nome,
-                    email: email,
-                    mensagem: 'Projeto: ' + projeto + '\n\nMensagem: ' + mensagemTexto
-                };
-
-                fetch(endpoint, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                    'Content-Type': 'text/plain;charset=utf-8'
-                    },
-                    body: JSON.stringify(payload)
-                })
-                    .then(function () {
-                    statusText.textContent = 'Mensagem enviada com sucesso!';
-                    form.reset();
-                    })
-                    .catch(function (error) {
-                    console.error(error);
-                    statusText.textContent = 'Ocorreu um erro ao enviar a mensagem.';
-                    });
-                });
-            });
-        </script>
 
     </body>
 </html>
