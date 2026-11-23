@@ -2361,3 +2361,7 @@ body.dark-theme .pmodal__hero::after{
 @media screen and (min-width: 768px){
   .nav__btns{ gap: 0; margin-left: 1.5rem; }
 }
+/* O botão de menu (ícone de grade) existe só no celular */
+@media screen and (min-width: 768px){
+  .nav__toggle{ display: none !important; }
+}
