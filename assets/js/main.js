@@ -163,38 +163,23 @@ function scrollUp(){
 window.addEventListener('scroll', scrollUp)
 
 /*==================== DARK LIGHT THEME ====================*/ 
+// O ícone (sol / lua) é trocado só pelo CSS, de acordo com a classe do <body>
 const themeButton = document.getElementById('theme-button')
 const darkTheme = 'dark-theme'
-const iconTheme = 'uil-sun'
 
-// Tópico selecionado anteriormente (se o usuário selecionou)
-const selectedTheme = localStorage.getItem('selected-theme')
-const selectedIcon = localStorage.getItem('selected-icon')
-
-// Obtem o tema atual da interface validando a classe do body
 const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun'
 
-// Valida se o tema selecionado anteriormente existe
-if (selectedTheme) {
-  // Se sim, ele adiciona o tema selecionado ao body
-  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
-  // Se sim, ele adiciona o icone selecionado ao botão
-  themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
+// Aplica o tema que a pessoa escolheu na última visita
+let selectedTheme = null
+try{ selectedTheme = localStorage.getItem('selected-theme') }catch(e){}
+if(selectedTheme){
+    document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
 }
 
-// Altera o tema da interface ao clicar no botão
-themeButton.addEventListener('click', () => {
-    // Adiciona ou remove o tema
+themeButton.addEventListener('click', () =>{
     document.body.classList.toggle(darkTheme)
-    themeButton.classList.toggle(iconTheme)
-    // Salva o tema selecionado e o icone selecionado
-    localStorage.setItem('selected-theme', getCurrentTheme())
-    localStorage.setItem('selected-icon', getCurrentIcon())
+    try{ localStorage.setItem('selected-theme', getCurrentTheme()) }catch(e){}
 })
-
-
-
 
 /*==================== MODAL CONTATE-ME ====================*/
 const contactModal = document.getElementById('contact-modal')

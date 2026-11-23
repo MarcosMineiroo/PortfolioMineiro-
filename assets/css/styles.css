@@ -2347,3 +2347,17 @@ body.dark-theme .pmodal__hero::after{
   .footer__container{ grid-template-columns: max-content 1fr max-content; column-gap: 3rem; align-items: center; }
   .footer__links{ justify-content: center; }
 }
+
+/*==================== BOTÕES DO TOPO (tema e menu) ====================*/
+.nav__btns{ display: flex; align-items: center; gap: 1.1rem; }
+.change-theme{ margin-right: 0; }
+.change-theme, .nav__toggle{
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.5rem; height: 2.5rem; border-radius: .6rem;
+  transition: background-color .3s, color .3s;
+}
+.change-theme:hover, .nav__toggle:hover{ background-color: hsla(var(--hue-color), 69%, 61%, .12); }
+.nav__toggle{ font-size: 1.25rem; }
+@media screen and (min-width: 768px){
+  .nav__btns{ gap: 0; margin-left: 1.5rem; }
+}
