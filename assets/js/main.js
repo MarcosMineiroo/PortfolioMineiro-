@@ -176,9 +176,38 @@ if(selectedTheme){
     document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
 }
 
-themeButton.addEventListener('click', () =>{
+const applyThemeToggle = () =>{
     document.body.classList.toggle(darkTheme)
     try{ localStorage.setItem('selected-theme', getCurrentTheme()) }catch(e){}
+}
+
+themeButton.addEventListener('click', () =>{
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    // Giro rápido no botão
+    themeButton.classList.remove('is-spinning'); void themeButton.offsetWidth
+    themeButton.classList.add('is-spinning')
+
+    // Navegadores modernos: o novo tema "se espalha" em círculo a partir do botão
+    if(document.startViewTransition && !reduce){
+        const r = themeButton.getBoundingClientRect()
+        const x = r.left + r.width / 2, y = r.top + r.height / 2
+        const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y))
+        const t = document.startViewTransition(applyThemeToggle)
+        t.ready.then(() =>{
+            document.documentElement.animate(
+                { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+                { duration: 650, easing: 'cubic-bezier(.4, 0, .2, 1)', pseudoElement: '::view-transition-new(root)' }
+            )
+        }).catch(() =>{})
+        return
+    }
+
+    // Outros navegadores: as cores mudam suavemente
+    document.documentElement.classList.add('theme-anim')
+    applyThemeToggle()
+    clearTimeout(themeButton._t)
+    themeButton._t = setTimeout(() => document.documentElement.classList.remove('theme-anim'), 550)
 })
 
 /*==================== MODAL CONTATE-ME ====================*/

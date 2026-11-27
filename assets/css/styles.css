@@ -2365,3 +2365,38 @@ body.dark-theme .pmodal__hero::after{
 @media screen and (min-width: 768px){
   .nav__toggle{ display: none !important; }
 }
+
+/*==================== TROCA DE TEMA: transição suave ====================*/
+/* Ícones sol/lua sobrepostos, trocando com giro e fade */
+.change-theme{ position: relative; transition: background-color .3s, transform .2s; }
+.change-theme:active{ transform: scale(.88); }
+.theme-icon{
+  position: absolute; top: 50%; left: 50%;
+  margin: -.625rem 0 0 -.625rem;
+  display: block !important;
+  transition: transform .55s cubic-bezier(.2, .9, .25, 1.2), opacity .35s ease;
+}
+.theme-icon--moon{ opacity: 1; transform: rotate(0) scale(1); }
+.theme-icon--sun{ opacity: 0; transform: rotate(-120deg) scale(.3); }
+body.dark-theme .theme-icon--moon{ opacity: 0; transform: rotate(120deg) scale(.3); }
+body.dark-theme .theme-icon--sun{ opacity: 1; transform: rotate(0) scale(1); }
+
+/* Giro do botão a cada clique */
+@keyframes themeSpin{ 0%{ box-shadow: 0 0 0 0 hsla(var(--hue-color), 69%, 61%, .45); } 100%{ box-shadow: 0 0 0 14px hsla(var(--hue-color), 69%, 61%, 0); } }
+.change-theme.is-spinning{ animation: themeSpin .6s ease-out; }
+
+/* Transição em círculo (navegadores com View Transitions) */
+::view-transition-old(root),
+::view-transition-new(root){ animation: none; mix-blend-mode: normal; }
+::view-transition-old(root){ z-index: 1; }
+::view-transition-new(root){ z-index: 2; }
+
+/* Fallback: cores mudando suavemente */
+.theme-anim, .theme-anim *, .theme-anim *::before, .theme-anim *::after{
+  transition: background-color .5s ease, color .5s ease, border-color .5s ease, fill .5s ease, stroke .5s ease, box-shadow .5s ease !important;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .theme-icon{ transition: opacity .2s; }
+  .change-theme.is-spinning{ animation: none; }
+}
